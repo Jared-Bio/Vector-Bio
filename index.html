@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vector Bio — LabOps Consulting</title>
+  <meta name="description" content="Vector Bio helps labs improve workflows, implement ELNs/LIMS, and reduce admin burden." />
+
+  <style>
+    :root{
+      --bg:#0b1220; --panel:rgba(255,255,255,.06); --border:rgba(255,255,255,.12);
+      --text:rgba(255,255,255,.92); --muted:rgba(255,255,255,.70);
+      --blue:#2b79ff; --blue2:#55b0ff; --shadow:0 18px 60px rgba(0,0,0,.45);
+      --radius:18px; --max:1120px;
+    }
+    *{box-sizing:border-box} html,body{height:100%}
+    body{
+      margin:0; font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 800px at 15% 10%, rgba(43,121,255,.26), transparent 55%),
+        radial-gradient(900px 700px at 90% 30%, rgba(85,176,255,.18), transparent 52%),
+        radial-gradient(900px 900px at 55% 105%, rgba(43,121,255,.12), transparent 50%),
+        var(--bg);
+      line-height:1.4;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 60px}
+
+    header{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 0 26px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:650;letter-spacing:.2px}
+    .logo{
+      width:38px;height:38px;border-radius:12px;position:relative;overflow:hidden;
+      background:linear-gradient(135deg, rgba(43,121,255,1), rgba(85,176,255,1));
+      box-shadow:0 10px 30px rgba(43,121,255,.25);
+    }
+    .logo:before,.logo:after{
+      content:""; position:absolute; inset:9px 10px; border:3px solid rgba(255,255,255,.92);
+      border-top:none; border-left:none; transform:skewX(-10deg) rotate(45deg);
+      border-radius:4px; opacity:.95;
+    }
+    .logo:after{inset:12px 14px; opacity:.45}
+
+    nav{display:flex;gap:14px;align-items:center}
+    .navlink{color:var(--muted);font-size:14px;padding:10px 10px;border-radius:10px}
+    .navlink:hover{background:rgba(255,255,255,.06);color:var(--text)}
+
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:11px 14px;border-radius:12px;border:1px solid var(--border);
+      background:rgba(255,255,255,.05);color:var(--text);
+      font-weight:600;font-size:14px;transition:transform .08s ease,background .18s ease,border-color .18s ease;
+      cursor:pointer;user-select:none;white-space:nowrap;
+    }
+    .btn:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);transform:translateY(-1px)}
+    .btn.primary{
+      border:none;background:linear-gradient(135deg,var(--blue),var(--blue2));
+      box-shadow:0 14px 40px rgba(43,121,255,.22);color:#081020;
+    }
+
+    .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:stretch;padding:10px 0 26px}
+    .card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+    .hero-left{padding:30px 28px}
+    .eyebrow{
+      display:inline-flex;gap:8px;align-items:center;color:var(--muted);font-size:13px;
+      padding:8px 10px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);border-radius:999px;
+    }
+    .dot{width:8px;height:8px;border-radius:99px;background:linear-gradient(135deg,var(--blue),var(--blue2));box-shadow:0 0 0 4px rgba(43,121,255,.14)}
+    h1{margin:14px 0 10px;font-size:clamp(34px,4vw,48px);line-height:1.05;letter-spacing:-.8px}
+    .sub{margin:0 0 18px;color:var(--muted);font-size:16px;max-width:54ch}
+    .cta-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:18px}
+    .mini{margin-top:14px;color:rgba(255,255,255,.62);font-size:13px}
+
+    .hero-right{padding:22px;display:flex;flex-direction:column;gap:14px}
+    .stat{padding:14px;border-radius:16px;background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.10)}
+    .stat b{display:block;font-size:14px;margin-bottom:4px}
+    .stat span{color:var(--muted);font-size:13px}
+
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:10px}
+    .feature{padding:18px}
+    .feature h3{margin:8px 0 6px;font-size:16px}
+    .feature p{margin:0;color:var(--muted);font-size:14px}
+    .icon{
+      width:38px;height:38px;border-radius:14px;background:rgba(43,121,255,.16);
+      border:1px solid rgba(43,121,255,.35);display:flex;align-items:center;justify-content:center;
+    }
+    .icon svg{opacity:.95}
+
+    section{margin-top:18px}
+    .section-card{padding:22px}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:12px}
+    .list{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+    .li{padding:12px 12px;border-radius:14px;border:1px solid rgba(255,255,255,.10);background:rgba(0,0,0,.16);color:var(--muted);font-size:14px}
+    .li b{color:var(--text)}
+
+    form{display:grid;gap:10px;margin-top:8px}
+    .row{display:grid;gap:10px;grid-template-columns:1fr 1fr}
+    label{font-size:13px;color:rgba(255,255,255,.72)}
+    input,textarea{
+      width:100%;padding:12px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.22);color:var(--text);outline:none;
+    }
+    input:focus,textarea:focus{border-color:rgba(85,176,255,.55)}
+    textarea{min-height:110px;resize:vertical}
+    .fineprint{color:rgba(255,255,255,.58);font-size:12px;margin-top:4px}
+
+    footer{margin-top:26px;color:rgba(255,255,255,.55);font-size:13px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .pill{display:inline-flex;gap:10px;align-items:center;padding:8px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04)}
+
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .split{grid-template-columns:1fr}
+      .row{grid-template-columns:1fr}
+      nav .navlink{display:none}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="#top" aria-label="Vector Bio home">
+        <div class="logo" aria-hidden="true"></div>
+        <div>Vector Bio</div>
+      </a>
+
+      <nav>
+        <a class="navlink" href="#services">Services</a>
+        <a class="navlink" href="#process">Process</a>
+        <a class="navlink" href="#contact">Contact</a>
+        <a class="btn" href="#contact">Free 30-min call</a>
+      </nav>
+    </header>
+
+    <main id="top" class="hero">
+      <div class="card hero-left">
+        <div class="eyebrow"><span class="dot"></span> LabOps consulting for modern research teams</div>
+        <h1>Make your lab run cleaner, faster, and calmer.</h1>
+        <p class="sub">
+          Vector Bio helps academic and biotech labs improve workflows, implement ELNs/LIMS, and reduce administrative drag—so your team can focus on science.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn primary" href="#contact">Book a free 30-min call</a>
+          <a class="btn" href="#services">See what we do</a>
+        </div>
+
+        <div class="mini">Typical outcomes: fewer handoffs, clearer SOPs, better documentation, and faster onboarding.</div>
+      </div>
+
+      <aside class="card hero-right" aria-label="Quick highlights">
+        <div class="stat">
+          <b>Who this is for</b>
+          <span>Academic labs, core facilities, and early-stage biotech teams.</span>
+        </div>
+        <div class="stat">
+          <b>What we improve</b>
+          <span>Documentation, sample tracking, data flow, and tooling (ELN/LIMS/AI).</span>
+        </div>
+        <div class="stat">
+          <b>Engagements</b>
+          <span>Lightweight audits → implementation support → ongoing optimization.</span>
+        </div>
+      </aside>
+    </main>
+
+    <section id="services">
+      <div class="grid">
+        <div class="card feature">
+          <div class="icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 19V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14"></path>
+              <path d="M6 21h12"></path>
+              <path d="M8 7h8"></path>
+              <path d="M8 11h8"></path>
+              <path d="M8 15h6"></path>
+            </svg>
+          </div>
+          <h3>Workflow Audit</h3>
+          <p>Map bottlenecks, handoffs, and admin drag. Deliver a practical improvement plan.</p>
+        </div>
+
+        <div class="card feature">
+          <div class="icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2v20"></path>
+              <path d="M2 12h20"></path>
+              <path d="M4 4l16 16"></path>
+            </svg>
+          </div>
+          <h3>ELN / LIMS Enablement</h3>
+          <p>Tool selection, setup, conventions, templates, and change management that sticks.</p>
+        </div>
+
+        <div class="card feature">
+          <div class="icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 7l-8 8-4-4"></path>
+              <path d="M4 17l4 4"></path>
+            </svg>
+          </div>
+          <h3>SOP + Training Systems</h3>
+          <p>Clean SOPs, onboarding checklists, and training flows so new people ramp faster.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="card section-card">
+        <h2 style="margin:0 0 6px; font-size: 20px;">A simple, low-friction process</h2>
+        <p style="margin:0; color:var(--muted); font-size:14px;">
+          You don’t need a “digital transformation.” You need the next 3–5 changes that remove the most drag.
+        </p>
+
+        <div class="split">
+          <div>
+            <ul class="list">
+              <li class="li"><b>1) Discovery Call (free)</b> — quick context, pain points, and constraints.</li>
+              <li class="li"><b>2) Mini Audit</b> — light data gathering: docs, tools, workflows, handoffs.</li>
+              <li class="li"><b>3) Report</b> — prioritized recommendations with effort/impact and rollout plan.</li>
+            </ul>
+          </div>
+          <div>
+            <ul class="list">
+              <li class="li"><b>4) Implementation</b> — templates, SOPs, tool setup, training, and adoption.</li>
+              <li class="li"><b>5) Stabilize</b> — weekly tweaks until it runs without thinking about it.</li>
+              <li class="li"><b>6) Optional Ongoing</b> — monthly check-ins and continuous improvement.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="card section-card">
+        <h2 style="margin:0 0 6px; font-size: 20px;">Contact</h2>
+        <p style="margin:0; color:var(--muted); font-size:14px;">
+          Fill this out and hit send — it’ll open your email client with the message pre-written.
+        </p>
+
+        <form id="contactForm" onsubmit="return mailtoSubmit(event)">
+          <div class="row">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="name" placeholder="Your name" required />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@lab.org" required />
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="org">Organization</label>
+              <input id="org" name="org" placeholder="Lab / company name" />
+            </div>
+            <div>
+              <label for="role">Role</label>
+              <input id="role" name="role" placeholder="PI, lab manager, ops, scientist..." />
+            </div>
+          </div>
+
+          <div>
+            <label for="message">What are you trying to improve?</label>
+            <textarea id="message" name="message" placeholder="Example: onboarding is messy, sample tracking is a nightmare, ELN adoption is failing..." required></textarea>
+          </div>
+
+          <div class="cta-row">
+            <button class="btn primary" type="submit">Send email</button>
+            <a class="btn" href="mailto:hello@vectorbio.com">Or email hello@vectorbio.com</a>
+          </div>
+
+          <div class="fineprint" id="formStatus" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div class="pill">© <span id="year"></span> Vector Bio</div>
+      <div class="pill">Chicago-based • Remote-friendly</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // GitHub Pages-friendly "form": opens the user's email client with a prefilled draft.
+    function mailtoSubmit(e){
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const org = document.getElementById("org").value.trim();
+      const role = document.getElementById("role").value.trim();
+      const msg  = document.getElementById("message").value.trim();
+
+      const to = "hello@vectorbio.com"; // change if needed
+      const subject = encodeURIComponent(`Vector Bio inquiry — ${name}${org ? " ("+org+")" : ""}`);
+      const body = encodeURIComponent(
+`Name: ${name}
+Email: ${email}
+Organization: ${org || "-"}
+Role: ${role || "-"}
+
+What I'm trying to improve:
+${msg}
+`
+      );
+
+      const url = `mailto:${to}?subject=${subject}&body=${body}`;
+      window.location.href = url;
+
+      const status = document.getElementById("formStatus");
+      status.textContent = "Opening your email client…";
+      return false;
+    }
+  </script>
+</body>
+</html>
