@@ -170,16 +170,19 @@
 
     .grid{
       display:grid;
-      grid-template-columns:repeat(3,1fr);
+      grid-template-columns:repeat(2,1fr);
       gap:16px;
       margin-top:16px;
     }
     .feature{padding:18px}
     .feature h3{margin:8px 0 6px;font-size:16px}
     .feature p{
-      margin:0;
+      margin:0 0 8px 0;
       color:var(--muted);
       font-size:14px;
+    }
+    .feature p:last-child{
+      margin-bottom:0;
     }
     .icon{
       width:38px;
@@ -193,7 +196,10 @@
     }
     .icon svg{opacity:.95}
 
-    section{margin-top:26px}
+    section{
+      margin-top:26px;
+      width:100%;
+    }
     .section-card{padding:22px}
     .split{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:12px}
     .list{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:10px}
@@ -253,6 +259,9 @@
       .split{grid-template-columns:1fr}
       .row{grid-template-columns:1fr}
       nav .navlink{display:none}
+    }
+    @media (max-width:600px){
+      .grid{grid-template-columns:1fr}
     }
   </style>
 </head>
