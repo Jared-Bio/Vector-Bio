@@ -209,7 +209,7 @@
 
     form{display:grid;gap:10px;margin-top:8px}
     .row{display:grid;gap:10px;grid-template-columns:1fr 1fr}
-    label{font-size:13px;color:rgba(255,255,255,.72)}
+    label{font-size:13px;color:var(--muted)}
     input,textarea{
       width:100%;
       padding:12px 12px;
@@ -290,18 +290,16 @@
         <div class="cta-row">
           <a class="btn primary" href="#contact">Book a 60-min call</a>
         </div>
-
-        <div class="mini">Outcomes: fewer handoffs, clearer SOPs, better documentation, and faster onboarding.</div>
       </div>
 
       <aside class="card hero-right" aria-label="Quick highlights">
         <div class="stat">
           <b>Who this is for</b>
-          <span>Academic labs, core facilities, and early-stage biotech teams that are frustrated with their current workflows and stagnating progress.</span>
+          <span>Academic labs, core facilities, and early-stage biotech teams that are frustrated with their current workflows and tedious administrative tasks.</span>
         </div>
         <div class="stat">
           <b>What we improve</b>
-          <span>Laboratory operations, Experimental workflows, Experiment Documentation, sample tracking, data flow, and AI implementation.</span>
+          <span>Streamlining Laboratory operations, Experimental workflows, Experiment Documentation, sample tracking, data flow, and AI tooling.</span>
         </div>
       </aside>
     </main>
@@ -318,20 +316,9 @@
               <path d="M8 15h6"></path>
             </svg>
           </div>
-          <h3>Workflow Audit</h3>
-          <p>Map bottlenecks, handoffs, and admin drag. Deliver a practical improvement plan.</p>
-        </div>
-
-        <div class="card feature">
-          <div class="icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2v20"></path>
-              <path d="M2 12h20"></path>
-              <path d="M4 4l16 16"></path>
-            </svg>
-          </div>
-          <h3>ELN / LIMS Enablement</h3>
-          <p>Tool selection, setup, conventions, templates, and change management that sticks.</p>
+          <h3>60-min Workflow Audit</h3>
+          <p>What it is:Discuss current lab workflows, problems, and discuss some potential solutions.</p>
+          <p>What you get: A detailed report of the current state of the lab, a list of potential solutions, and a plan for implementation.</p>
         </div>
 
         <div class="card feature">
@@ -341,32 +328,30 @@
               <path d="M4 17l4 4"></path>
             </svg>
           </div>
-          <h3>SOP + Training Systems</h3>
-          <p>Clean SOPs, onboarding checklists, and training flows so new people ramp faster.</p>
+          <h3>Implementation Support</h3>
+          <p>What it is: Full support for the implementation of the solutions discussed in the audit.</p>
+          <p>What you get: Assistance with the implementation of the solutions discussed in the audit, including the setup of new tools, the creation of new workflows, and the training of new users.</p>
         </div>
       </div>
     </section>
 
     <section id="process">
       <div class="card section-card">
-        <h2 style="margin:0 0 6px; font-size: 20px;">A simple, low-friction process</h2>
-        <p style="margin:0; color:var(--muted); font-size:14px;">
-          You don’t need a “digital transformation.” You need the next 3–5 changes that remove the most drag.
-        </p>
+        <h2 style="margin:0 0 6px; font-size: 20px;">The Process</h2>
 
         <div class="split">
           <div>
             <ul class="list">
-              <li class="li"><b>1) Discovery Call (free)</b> — quick context, pain points, and constraints.</li>
-              <li class="li"><b>2) Mini Audit</b> — light data gathering: docs, tools, workflows, handoffs.</li>
-              <li class="li"><b>3) Report</b> — prioritized recommendations with effort/impact and rollout plan.</li>
+              <li class="li"><b>1) Sign up for a 60-min call</b></li>
+              <li class="li"><b>2) Complete the pre-call questionnaire</b> - A few simple questions to help me understand your lab betterand your potential needs.</li>
+              <li class="li"><b>3) The Call</b> — 60-min call to discuss your lab's current workflows, problems, and potential solutions.</li>
             </ul>
           </div>
           <div>
             <ul class="list">
-              <li class="li"><b>4) Implementation</b> — templates, SOPs, tool setup, training, and adoption.</li>
-              <li class="li"><b>5) Stabilize</b> — weekly tweaks until it runs without thinking about it.</li>
-              <li class="li"><b>6) Optional Ongoing</b> — monthly check-ins and continuous improvement.</li>
+              <li class="li"><b>4) Written Audit</b> — A full written report of the current state of the lab, a list of potential solutions, and a plan for implementation.</li>
+              <li class="li"><b>5) (Optional) Implementation</b> — Full support for the implementation of the solutions discussed in the audit.</li>
+              <li class="li"><b>6) (Optional) Retainer</b> — Weekly check-ins and continuous support for current workflows and any potential future needs.</li>
             </ul>
           </div>
         </div>
@@ -377,50 +362,27 @@
       <div class="card section-card">
         <h2 style="margin:0 0 6px; font-size: 20px;">Contact</h2>
         <p style="margin:0; color:var(--muted); font-size:14px;">
-          Fill this out and hit send — it’ll open your email client with the message pre-written.
+          Have a question? Send it below or book a call.
         </p>
 
-        <form id="contactForm" onsubmit="return mailtoSubmit(event)">
-          <div class="row">
-            <div>
-              <label for="name">Name</label>
-              <input id="name" name="name" placeholder="Your name" required />
-            </div>
-            <div>
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="you@lab.org" required />
-            </div>
-          </div>
-
-          <div class="row">
-            <div>
-              <label for="org">Organization</label>
-              <input id="org" name="org" placeholder="Lab / company name" />
-            </div>
-            <div>
-              <label for="role">Role</label>
-              <input id="role" name="role" placeholder="PI, lab manager, ops, scientist..." />
-            </div>
-          </div>
-
+        <form id="contactForm" onsubmit="return mailtoSubmit(event)" style="margin-top:16px;">
           <div>
-            <label for="message">What are you trying to improve?</label>
-            <textarea id="message" name="message" placeholder="Example: onboarding is messy, sample tracking is a nightmare, ELN adoption is failing..." required></textarea>
+            <label for="message" style="display:block; margin-bottom:6px; font-size:13px; color:var(--muted);">Question</label>
+            <textarea id="message" name="message" placeholder="Ask your question here..." required style="min-height:80px;"></textarea>
           </div>
 
-          <div class="cta-row">
-            <button class="btn primary" type="submit">Send email</button>
-            <a class="btn" href="mailto:hello@vectorbio.com">Or email hello@vectorbio.com</a>
+          <div class="cta-row" style="margin-top:14px;">
+            <button class="btn primary" type="submit">Send question</button>
+            <a class="btn primary" href="https://calendly.com/jaredl3106/30min" target="_blank" rel="noopener noreferrer">Book a 60-minute Call</a>
           </div>
 
-          <div class="fineprint" id="formStatus" aria-live="polite"></div>
+          <div class="fineprint" id="formStatus" aria-live="polite" style="color:var(--muted); margin-top:8px;"></div>
         </form>
       </div>
     </section>
 
     <footer>
       <div class="pill">© <span id="year"></span> Vector Bio</div>
-      <div class="pill">Chicago-based • Remote-friendly</div>
     </footer>
   </div>
 
@@ -431,24 +393,11 @@
     function mailtoSubmit(e){
       e.preventDefault();
 
-      const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const org = document.getElementById("org").value.trim();
-      const role = document.getElementById("role").value.trim();
-      const msg  = document.getElementById("message").value.trim();
+      const msg = document.getElementById("message").value.trim();
 
-      const to = "hello@vectorbio.com"; // change if needed
-      const subject = encodeURIComponent(`Vector Bio inquiry — ${name}${org ? " ("+org+")" : ""}`);
-      const body = encodeURIComponent(
-`Name: ${name}
-Email: ${email}
-Organization: ${org || "-"}
-Role: ${role || "-"}
-
-What I'm trying to improve:
-${msg}
-`
-      );
+      const to = "hello@vectorbio.com";
+      const subject = encodeURIComponent("Vector Bio question");
+      const body = encodeURIComponent(msg);
 
       const url = `mailto:${to}?subject=${subject}&body=${body}`;
       window.location.href = url;
